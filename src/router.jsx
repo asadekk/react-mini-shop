@@ -1,8 +1,8 @@
-import { createBrowserRouter } from "react-router"; 
+import { createBrowserRouter } from "react-router";
 
 import MainLayout from "./layouts/MainLayout";
 
-import Products from "./pages/Products";
+import Products, { productCategoryLoader } from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
@@ -22,12 +22,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home/>,
+        element: <Home />,
         loader: productsLoader,
       },
       {
-        path: "products",
+        path: "/products/category/:category",
         element: <Products />,
+        loader: productCategoryLoader,
       },
       {
         path: "products/:id",

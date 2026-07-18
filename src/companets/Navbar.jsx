@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 function Navbar() {
   const [cartCount] = useState(5);
- 
+
 
   return <>
     <nav className="navbar">
@@ -81,7 +81,33 @@ function Navbar() {
       </div>
     </nav>
     <div className="btn-categorys">
-      <button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button>
+
+      <ul>
+        <li><Link to="/products/category/beauty">Beauty</Link></li>
+        <li><Link to="/products/category/fragrances">Fragrances</Link></li>
+        <li><Link to="/products/category/furniture">Furniture</Link></li>
+        <li><Link to="/products/category/groceries">Groceries</Link></li>
+        <li><Link to="/products/category/home-decoration">Home Decoration</Link></li>
+        <li><Link to="/products/category/kitchen-accessories">Kitchen Accessories</Link></li>
+        <li><Link to="/products/category/laptops">Laptops</Link></li>
+        <li><Link to="/products/category/mens-shirts">Men's Shirts</Link></li>
+        <li><Link to="/products/category/mens-shoes">Men's Shoes</Link></li>
+        <li><Link to="/products/category/mens-watches">Men's Watches</Link></li>
+        <li><Link to="/products/category/mobile-accessories">Mobile Accessories</Link></li>
+        <li><Link to="/products/category/motorcycle">Motorcycle</Link></li>
+        <li><Link to="/products/category/skin-care">Skin Care</Link></li>
+        <li><Link to="/products/category/smartphones">Smartphones</Link></li>
+        <li><Link to="/products/category/sports-accessories">Sports Accessories</Link></li>
+        <li><Link to="/products/category/sunglasses">Sunglasses</Link></li>
+        <li><Link to="/products/category/tablets">Tablets</Link></li>
+        <li><Link to="/products/category/tops">Tops</Link></li>
+        <li><Link to="/products/category/vehicle">Vehicle</Link></li>
+        <li><Link to="/products/category/womens-bags">Women's Bags</Link></li>
+        <li><Link to="/products/category/womens-dresses">Women's Dresses</Link></li>
+        <li><Link to="/products/category/womens-jewellery">Women's Jewellery</Link></li>
+        <li><Link to="/products/category/womens-shoes">Women's Shoes</Link></li>
+        <li><Link to="/products/category/womens-watches">Women's Watches</Link></li>
+      </ul>
     </div>
   </>
 }
