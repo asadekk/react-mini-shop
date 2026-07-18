@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router";
 
 import MainLayout from "./layouts/MainLayout";
 
-import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
@@ -11,6 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
+import Home, { productsLoader } from "./pages/Home";
 
 
 
@@ -22,7 +22,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Home/>,
+        loader: productsLoader,
       },
       {
         path: "products",

@@ -83,13 +83,6 @@ function Navbar() {
     <div className="btn-categorys">
       <button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button><button className="btn_category"></button>
     </div>
-    <div>
-      <div>
-        {/* {products.slice(0, 8).map((item) => (
-          <h3 key={item.id}>{item.title}</h3>
-        ))} */}
-      </div>
-    </div>
   </>
 }
 
