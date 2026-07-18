@@ -6,6 +6,7 @@
   grid-template-columns: repeat(5, 220px);
   justify-content: space-between;
   row-gap: 25px;
+  
 }
 
 .product-card {
@@ -75,6 +76,7 @@
 .product-card__price {
   font-size: 18px;
   font-weight: 700;
+  
 }
 
 .product-card__old-price {
@@ -88,14 +90,16 @@
   background: #fff2a8;
   padding: 3px 7px;
   border-radius: 5px;
-  font-size: 12px;
+  fon-size: 12px;
 }
 
 .product-card__title {
   font-size: 14px;
   line-height: 1.4;
   height: 40px;
-  overflow: hidden;
+  overflow: hidden
+  ;
+   text-decoration: none;
 }
 
 .product-card__rating {
@@ -122,7 +126,10 @@
 .product-card__cta:hover {
   background: #5824b4;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 /* Responsive */
 
 @media (max-width:1200px){

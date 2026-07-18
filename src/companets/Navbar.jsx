@@ -83,6 +83,7 @@ function Navbar() {
     <div className="btn-categorys">
 
       <ul>
+        <li><Link to="/">All</Link></li>
         <li><Link to="/products/category/beauty">Beauty</Link></li>
         <li><Link to="/products/category/fragrances">Fragrances</Link></li>
         <li><Link to="/products/category/furniture">Furniture</Link></li>

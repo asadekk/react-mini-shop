@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "./layouts/MainLayout";
 
 import Products, { productCategoryLoader } from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
+import ProductDetail, { loader } from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import Login from "./pages/Login";
@@ -31,8 +31,9 @@ const router = createBrowserRouter([
         loader: productCategoryLoader,
       },
       {
-        path: "products/:id",
+        path: "product/:id",
         element: <ProductDetail />,
+        loader: loader,
       },
       {
         path: "cart",
