@@ -50,7 +50,7 @@ function ProductCord({ product }) {
             <span className="product-card__star">★</span>
             <span>{product.rating}</span>
           </div>
-          <button
+          <button className="product-card__cta"
             onClick={(e) => {
               e.preventDefault();
               addToCart(product);
