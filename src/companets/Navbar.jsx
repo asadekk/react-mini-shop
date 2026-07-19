@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "../css/Navbar.css";
 import { Link } from "react-router";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
-  const [cartCount] = useState(5);
-
-
+  const { cart } = useCart()
+  const cartItem = cart.length
   return <>
     <nav className="navbar">
       <div className="navbar__left">
@@ -76,7 +76,7 @@ function Navbar() {
             />
           </svg>
           <span>Savat</span>
-          {cartCount > 0 && <span className="navbar__badge">{cartCount}</span>}
+          {cartItem > 0 && <span className="navbar__badge">{cartItem}</span>}
         </Link>
       </div>
     </nav>

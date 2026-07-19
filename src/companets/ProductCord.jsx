@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import "../css/ProductCord.css";
+import { useCart } from "../context/CartContext";
 
 function ProductCord({ product }) {
+  const { addToCart } = useCart()
+
   return (
     <Link to={`/product/${product.id}`}>
       <div className="product-card">
@@ -47,10 +50,12 @@ function ProductCord({ product }) {
             <span className="product-card__star">★</span>
             <span>{product.rating}</span>
           </div>
-
-          <button className="product-card__cta" onClick={(e) => {
-            e.preventDefault()
-          }}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart(product);
+            }}
+          >
             🛒 Savatga qo'shish
           </button>
         </div>
