@@ -1,9 +1,10 @@
 import { Link } from "react-router";
 import "../css/ProductCord.css";
 import { useCart } from "../context/CartContext";
-
+import { useLike } from "../context/LikeContext";
 function ProductCord({ product }) {
   const { addToCart } = useCart()
+  const { addToggleLike, like } = useLike()
 
   return (
     <Link to={`/product/${product.id}`}>
@@ -16,9 +17,10 @@ function ProductCord({ product }) {
           />
 
           <button className="product-card__like" onClick={(e) => {
-            e.preventDefault()
+            e.preventDefault();
+            addToggleLike(product)
           }}>
-            ❤️
+             {like.includes(product) ? "❤️" : "🤍"}
           </button>
         </div>
 

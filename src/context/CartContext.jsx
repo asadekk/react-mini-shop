@@ -32,7 +32,7 @@ export function CartProvider({ children }) {
         {
           ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1
         } : item
-    }))
+    })) 
   }
 
   const deleteCart = (id) => {

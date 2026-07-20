@@ -123,8 +123,8 @@
   font-weight: 600;
 }
 
-.product-card__cta:hover {
-  background: #5824b4;
+.product-card__cta:active {
+  background: #0e9ae0;
 }
 a {
   text-decoration: none;
