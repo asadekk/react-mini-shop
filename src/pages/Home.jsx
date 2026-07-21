@@ -21,7 +21,6 @@ function Home() {
           product={product}
         />
       ))}
-      <Navbar products={products}/>
     </div>
   )
 }
