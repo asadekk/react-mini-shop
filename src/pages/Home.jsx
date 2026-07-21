@@ -2,6 +2,7 @@ import React from 'react'
 import '../css/ProductCord.css'
 import ProductCord from '../companets/ProductCord';
 import { useLoaderData } from 'react-router';
+import Navbar from '../companets/Navbar';
 
 export async function productsLoader() {
   const res = await fetch("https://dummyjson.com/products");
@@ -20,6 +21,7 @@ function Home() {
           product={product}
         />
       ))}
+      <Navbar products={products}/>
     </div>
   )
 }
