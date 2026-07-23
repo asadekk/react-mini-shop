@@ -1,62 +1,114 @@
 import { createBrowserRouter } from "react-router";
-
 import MainLayout from "./layouts/MainLayout";
-
-import Products, { productCategoryLoader } from "./pages/Products";
-import ProductDetail, { loader } from "./pages/ProductDetail";
-import Cart from "./pages/Cart";
-import Wishlist from "./pages/Wishlist";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
-import Home, { productsLoader } from "./pages/Home";
-
-
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     errorElement: <NotFound />,
+
     children: [
       {
         index: true,
-        element: <Home />,
-        loader: productsLoader,
+
+        async lazy() {
+          const module = await import("./pages/Home");
+
+          return {
+            Component: module.default,
+            loader: module.productsLoader,
+          };
+        },
       },
+
       {
-        path: "/products/category/:category",
-        element: <Products />,
-        loader: productCategoryLoader,
+        path: "products/category/:category",
+
+        async lazy() {
+          const module = await import("./pages/Products");
+
+          return {
+            Component: module.default,
+            loader: module.productCategoryLoader,
+          };
+        },
       },
+
       {
         path: "product/:id",
-        element: <ProductDetail />,
-        loader: loader,
+
+        async lazy() {
+          const module = await import("./pages/ProductDetail");
+
+          return {
+            Component: module.default,
+            loader: module.loader,
+          };
+        },
       },
+
       {
         path: "cart",
-        element: <Cart />,
+
+        async lazy() {
+          const module = await import("./pages/Cart");
+
+          return {
+            Component: module.default,
+          };
+        },
       },
+
       {
         path: "favorites",
-        element: <Wishlist />,
+
+        async lazy() {
+          const module = await import("./pages/Wishlist");
+
+          return {
+            Component: module.default,
+          };
+        },
       },
+
       {
         path: "login",
-        element: <Login />,
+
+        async lazy() {
+          const module = await import("./pages/Login");
+
+          return {
+            Component: module.default,
+          };
+        },
       },
+
       {
         path: "register",
-        element: <Register />,
+
+        async lazy() {
+          const module = await import("./pages/Register");
+
+          return {
+            Component: module.default,
+          };
+        },
       },
+
       {
         path: "checkout",
-        element: <Checkout />,
+
+        async lazy() {
+          const module = await import("./pages/Checkout");
+
+          return {
+            Component: module.default,
+          };
+        },
       },
     ],
   },
 ]);
 
-export default router
+export default router;

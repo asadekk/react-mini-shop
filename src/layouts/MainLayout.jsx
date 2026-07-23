@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import '../css/MianLayout.css'
 import { Outlet } from 'react-router'
 import Navbar from '../companets/Navbar'
 import Footer from '../companets/Footer'
+import Loading from '../companets/Loading'
 
 
 function MainLayout() {
@@ -13,7 +14,9 @@ function MainLayout() {
           <div className='contener'>
             <Navbar />
             <main>
-                <Outlet />
+                <Suspense fallback={<Loading/>}>
+                  <Outlet />
+                </Suspense>
             </main>
             <Footer />
         </div>
