@@ -2,10 +2,19 @@ import React from 'react'
 import '../css/ProductCord.css'
 import ProductCord from '../companets/ProductCord';
 import { useLoaderData } from 'react-router';
-import Navbar from '../companets/Navbar';
 
-export async function productsLoader() {
-  const res = await fetch("https://dummyjson.com/products");
+
+
+export async function productsLoader({ request }) {
+  const url = new URL(request.url)
+
+  const search = url.searchParams.get("search") || "";
+
+  const api = search 
+  ? `https://dummyjson.com/products/search?q=${search}` 
+  : `https://dummyjson.com/products`
+
+  const res = await fetch(api);
   const data = await res.json();
 
   return data.products;
@@ -20,6 +29,7 @@ function Home() {
           key={product.id}
           product={product}
         />
+
       ))}
     </div>
   )

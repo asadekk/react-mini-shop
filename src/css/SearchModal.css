@@ -1,25 +1,59 @@
-/* Butun ekranni qoplaydigan orqa fon (Overlay) */
-.search-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6); /* Shaffof qora fon */
-  z-index: 99999; /* Barcha header va kontentlardan yuqorida turadi */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.search-modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 99999;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
 }
 
-/* Modalning o'zi (Oyna) */
-.search-modal-content {
-  background: #ffffff;
-  width: 100%;
-  max-width: 1200px; /* Modalning maksimal kengligi */
-  height: 100vh;     /* Ekran balandligining 80% qismi */
-  padding: 24px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow-y: auto; /* Ichidagi kontent ko'paysa scroll bo'lishi uchun */
+.search-modal-content{
+    width:100%;
+    height:100vh;
+    background:#fff;
+    overflow-y:auto;
+}
+
+.search-modal__header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:20px;
+    background:#fff;
+
+    border-bottom:1px solid #ddd;
+}
+
+.search-modal__search{
+    flex:1;
+    display:flex;
+}
+
+.search-modal__input{
+    flex:1;
+    height:50px;
+    border:1px solid #ccc;
+    padding:0 15px;
+}
+
+.search-modal__search-btn{
+    width:60px;
+}
+
+.search-modal__close{
+    width:50px;
+    height:50px;
+}
+
+.search-modal__body{
+    padding:30px;
+}
+
+.search-modal__results{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
 }

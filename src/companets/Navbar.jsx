@@ -1,22 +1,22 @@
 import { useState } from "react";
 import "../css/Navbar.css";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { useCart } from "../context/CartContext";
-import SearchModal from "./SearchModal";
-
+import { useSearch } from "../context/SearchContext";
 
 function Navbar() {
   const { cart } = useCart()
-  const [modal, setModal] = useState(false)
+  const [searchParams, setSearchParams] = useSearchParams();
   const cartItem = cart.length
-
+  const search = searchParams.get("search") || "";
+  
   return <>
     <div className="header">
       <nav className="navbar">
         <div className="navbar__left">
           <Link to="/" className="navbar__logo">
-            <span className="navbar__logo-badge">U</span>
-            <span className="navbar__logo-text">shop market</span>
+            <span className="navbar__logo-badge">www</span>
+            <span className="navbar__logo-text">DEMO market</span>
           </Link>
 
           <button className="navbar__catalog" type="button">
@@ -33,7 +33,7 @@ function Navbar() {
         <div className="navbar__search">
           <input
             type="text"
-            onClick={() => setModal(true)}
+            onChange={(e) => setSearchParams({ search: e.target.value, })}
             placeholder="Mahsulotlar va turkumlar izlash"
             className="navbar__search-input"
           />
@@ -44,7 +44,7 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        
+
 
         <div className="navbar__right">
           <Link to="/login" className="navbar__link">
@@ -118,8 +118,6 @@ function Navbar() {
         </ul>
       </div>
     </div>
-    {modal && <SearchModal isOpen={modal}
-          onClose={() => setModal(false)} />}
   </>
 }
 
