@@ -11,6 +11,8 @@
     height: 100vh;
 }
 .contener{
+    display: grid;
+    grid-template-rows: 1fr;
     width: 1200px;
     height: 100%;
     margin: auto;
