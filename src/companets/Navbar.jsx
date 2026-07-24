@@ -3,29 +3,28 @@ import "../css/Navbar.css";
 import { Link, useSearchParams } from "react-router";
 import { useCart } from "../context/CartContext";
 import { useSearch } from "../context/SearchContext";
+import { HiOutlineFunnel, HiOutlineXMark } from "react-icons/hi2";
+import KatalogModal from "../companets/KatalogModal"
+import { PiSquaresFour } from "react-icons/pi";
 
 function Navbar() {
   const { cart } = useCart()
   const [searchParams, setSearchParams] = useSearchParams();
+  const [open, setOpen] = useState(false)
   const cartItem = cart.length
   const search = searchParams.get("search") || "";
-  
+
   return <>
     <div className="header">
       <nav className="navbar">
         <div className="navbar__left">
           <Link to="/" className="navbar__logo">
-            <span className="navbar__logo-badge">www</span>
+            <span className="navbar__logo-badge">🎁</span>
             <span className="navbar__logo-text">DEMO market</span>
           </Link>
 
-          <button className="navbar__catalog" type="button">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="4" width="7" height="7" rx="1.5" />
-              <rect x="14" y="4" width="7" height="7" rx="1.5" />
-              <rect x="3" y="13" width="7" height="7" rx="1.5" />
-              <rect x="14" y="13" width="7" height="7" rx="1.5" />
-            </svg>
+          <button className="navbar__catalog" type="button" onClick={()=>setOpen(prev => !prev)}>
+            {open ? <HiOutlineXMark size={20} /> : <PiSquaresFour size={20}/>}
             Katalog
           </button>
         </div>
@@ -45,6 +44,7 @@ function Navbar() {
           </button>
         </div>
 
+        <HiOutlineFunnel size={24} />
 
         <div className="navbar__right">
           <Link to="/login" className="navbar__link">
@@ -87,7 +87,7 @@ function Navbar() {
           </Link>
         </div>
       </nav>
-      <div className="btn-categorys">
+      { open ? "" : <div className="btn-categorys">
 
         <ul>
           <li><Link to="/">All</Link></li>
@@ -116,7 +116,8 @@ function Navbar() {
           <li><Link to="/products/category/womens-shoes">Women's Shoes</Link></li>
           <li><Link to="/products/category/womens-watches">Women's Watches</Link></li>
         </ul>
-      </div>
+      </div>}
+      {open && <KatalogModal close={setOpen}/>}
     </div>
   </>
 }

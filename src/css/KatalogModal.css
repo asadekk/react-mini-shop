@@ -1,0 +1,61 @@
+.modal-overlay {
+    position: fixed;
+    top: 72px;
+    /* Navbar tugagan joy */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    width: 100%;
+    background: white;
+    z-index: 999;
+}
+
+.catalog-modal {
+    width: 1200px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: auto;
+}
+
+.catalog-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .catalog-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.catalog-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+}
+
+.catalog-link:hover {
+    background-color: #f2f2f2;
+}
+
+.catalog-link.active {
+    background-color: #e0edff;
+    color: #2563eb;
+    font-weight: 500;
+}
