@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/ProductDetail.css'
 import { useLoaderData, useParams } from 'react-router'
+import { useCart } from '../context/CartContext';
 export async function loader({ params }) {
   const res = await fetch(
     `https://dummyjson.com/products/${params.id}`
@@ -10,6 +11,7 @@ export async function loader({ params }) {
 }
 function ProductDetail() {
   const { id } = useParams()
+  const { addToCart } = useCart()
   const product = useLoaderData()
   console.log(product);
 
@@ -50,7 +52,7 @@ function ProductDetail() {
           </p>
 
           <div className="product-detail-buttons">
-            <button className="cart-btn">
+            <button className="cart-btn" onClick={()=>addToCart(product)}>
               🛒 Savatga qo'shish
             </button>
           </div>
